@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: doable-todo-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: doable-todo
+  template:
+    metadata:
+      labels:
+        app: doable-todo
+    spec:
+      containers:
+        - name: doable-todo
+          image: sarthakmatte1/doable-todo:latest
+          ports:
+            - containerPort: 80
